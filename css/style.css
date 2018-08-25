@@ -3,17 +3,8 @@ body{
   color:white;
   text-align: center;
   font-family: sans-serif;
-  padding-top: 140px;
   margin: 0px;
-}
-
-#top{
-  left: 50%;
-  transform: translateX(-50%);
-  top:0px;
-  width: 75%;
-  position: fixed;
-  background-color: #050505;
+  font-size: 14px;
 }
 
 #back{
@@ -24,53 +15,218 @@ body{
   position: fixed;
   background-color: #050505;
   height: 100vh;
-  z-index: -1;
+  z-index: -10;
 }
 
-nav{
-  display: flex;
-  justify-content: space-around;
-  border-top: solid 1px darkred;
-  border-bottom: solid 1px darkred;
-  padding: 5px 0px 5px 0px;
-  flex-direction: row;
+#top{
+  margin-right: auto;
+  margin-left: auto;
+  width: 75%;
+  min-width: 68em;
+  background-color: #050505;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: [header] 6em [nav] 3em [main] auto [footer] 3em;
+  grid-gap: 1em;
+  align-items: end;
 }
 
-nav a{
-  text-decoration: none;
-  color: white;
-  list-style: none;
-}
-
-#active{
-  color: darkred;
-}
-
-nav a:hover{
-  color: red;
-  transition: 0.5s;
+header {
+  grid-row: header;
+  display: grid;
+  grid-template-columns: repeat(4, 16em);
+  grid-template-rows: 1.5em 0 1.5em 0 1.5em 0;
+  align-items: start;
+  grid-column-gap: 1em;
+  cursor: default;
+  justify-self: center;
 }
 
 header h1{
-  margin-top: 10px;
+  font-size: 40px;
+  grid-column: 2;
+  margin: 0;
+  justify-self: end;
+  align-self: center;
+}
+header #lastname {
+  grid-row: 1 / span 2;
+}
+header #pronounce {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-self: end;
+  align-self: center;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateX(-300px);
+  color: darkgrey;
+}
+header #lastname:hover {
   color: darkred;
-  font-size: 44px;
+  transition: 0.5s;
+}
+header #lastname:hover + #pronounce {
+  opacity: 1;
+  transform: translateX(-180px);
+  transition: 0.5s;
+}
+header #firstname {
+  grid-row: 5 / span 2;
+}
+header h4{
+  color: darkgrey;
+  grid-column: 3;
+  font-size: 24px;
+  margin: 0;
+  justify-self: start;
+  align-self: center;
+}
+header h4:hover {
+  color:darkred;
+  transition: 0.5s;
+}
+header #one {
+  grid-row: 1;
+}
+header #two {
+  grid-row: 3;
+}
+header #three {
+  grid-row: 5;
 }
 
-header h4{
-  font-size: 25px;
-  margin-top: -30px;
-  margin-bottom: 20px;
+
+header .title {
+  opacity: 0;
+  transform: translate(300px, -12px);
+  grid-column: 3 / span 2;
+  transition: 0.1s;
+  justify-self:start;
+  grid-row: 1;
 }
+header #soc {
+  grid-row: 1;
+}
+header #code {
+  grid-row: 3;
+}
+header #teach {
+  grid-row: 5;
+}
+header h4:hover + .title {
+  opacity: 1;
+  transform: translate(134px, -12px);
+  transition: 0.5s;
+}
+header #two:hover + #code {
+  transform: translate(72px, -12px);
+}
+header #three:hover + #teach {
+  transform: translate(92px, -12px);
+}
+
+nav{
+  border-top: solid 1px darkgrey;
+  border-bottom: solid 1px darkgrey;
+  grid-row: nav;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 3em;
+  align-items: center;
+}
+nav a{
+  text-decoration: none;
+  color: darkgrey;
+  list-style: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+nav .active{
+  color: white;
+}
+nav a:hover{
+  color: darkred;
+  transition: 0.5s;
+}
+
 
 main{
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
+  grid-row: main;
+  display: grid;
+  grid-template-columns: repeat(4, 16em);
+  grid-template-rows: repeat(3, 16em);
+  grid-gap: 1em;
+  justify-self: center;
+}
+main .block {
+  display: grid;
+}
+main .block img {
+  opacity: 1;
+  width: 100%;
+}
+main .small img:hover{
+  opacity: 0.5;
+
+}
+main .block h5 {
+  opacity: 0;
+  position: relative;
+  justify-self:end;
+  margin-right: 10px;
+  top: -40px;
+  z-index: 4;
+}
+main .small img:hover + h5 {
+  opacity: 1;
+  transition: 0.5s;
+}
+main #a {
+  grid-column: 1;
+  grid-row: 1;
+}
+main #b {
+  grid-column: 2;
+  grid-row: 1;
+}
+main #c {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 2;
+}
+main #d {
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+}
+main #e {
+  grid-column: 3;
+  grid-row: 3;
+}
+main #f {
+  grid-column: 4;
+  grid-row: 3;
 }
 
-#post{
-  width: 100%;
-  height: 200vh;
-  color: white;
+footer {
+  border-top: solid 1px darkgrey;
+  border-bottom: solid 1px darkgrey;
+  grid-row: footer;
+  display: grid;
+  grid-template-columns: repeat(4, 2.5em);
+  grid-template-rows: 3em;
+  align-items: center;
+  justify-content: end;
+}
+footer a {
+  rel:noopener noreferrer;
+  target:_blank;
+}
+footer img {
+  height: 1.5em;
+  width: 1.5em;
+  filter:invert(100%);
+}
+footer img:hover {
+  filter: invert(50%);
+  transition: 0.5s;
 }

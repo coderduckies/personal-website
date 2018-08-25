@@ -1,34 +1,14 @@
-function navbarGen() {
-  console.log("type 'help()' to open options")
-
-  if(window.location.href.indexOf("index") > -1)  {
-      document.getElementsByTagName("nav")[0].innerHTML =
-      "<a id='active' href='index.html'>Home</a><a href='experience.html'>Experience</a><a href='blog.html'>Writing</a><a href='contactpage.html'>Contact</a>";
-  }
-
-  if(window.location.href.indexOf("experience") > -1)  {
-      document.getElementsByTagName("nav")[0].innerHTML =
-      "<a href='index.html'>Home</a><a id='active' href='experience.html'>Experience</a><a href='blog.html'>Writing</a><a href='contactpage.html'>Contact</a>";
-  }
-
-  if(window.location.href.indexOf("blog") > -1)  {
-      document.getElementsByTagName("nav")[0].innerHTML =
-      "<a href='index.html'>Home</a><a href='experience.html'>Experience</a><a id='active' href='blog.html'>Writing</a><a href='contactpage.html'>Contact</a>";
-  }
-
-  if(window.location.href.indexOf("contactpage") > -1)  {
-      document.getElementsByTagName("nav")[0].innerHTML =
-      "<a href='index.html'>Home</a><a href='experience.html'>Experience</a><a href='blog.html'>Writing</a><a id='active' href='contactpage.html'>Contact</a>";
-  }
-
+console.log('Yes, I have a few "easter eggs" here.');
+console.log('Try running the "help()" function for the following parameters');
+console.log('"lastname"');
+var lastname = "lastname";
+function help(input) {
+	switch(input) {
+		case "lastname":
+			console.log("I've found it important that people can pronounce my last name as it's often pronounced incorrectly. You can read more about it at the wikipedia page here. https://en.wikipedia.org/wiki/Nguyen#Pronunciation");
+			break;
+		default:
+			console.log("This was not one of the options.");
+	} 
 }
 
-function help() {
-  console.log("You've found the Easter Egg to my site!");
-}
-
-function color(input) {
-  document.getElementsByTagName("h1")[0].style.color = input;
-  document.getElementsByTagName("nav")[0].style.borderColor = input;
-  document.getElementById("active").style.color = input;
-}
