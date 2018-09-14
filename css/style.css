@@ -7,7 +7,7 @@ body{
   font-size: 14px;
 }
 
-#back{
+.back{
   left: 50%;
   transform: translateX(-50%);
   top:0px;
@@ -18,17 +18,20 @@ body{
   z-index: -10;
 }
 
-#top{
-  margin-right: auto;
-  margin-left: auto;
+.top{
+  left: 50%;
+  transform: translateX(-50%);
+  top:0px;
   width: 75%;
   min-width: 68em;
   background-color: #050505;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: [header] 6em [nav] 3em [main] auto [footer] 3em;
+  grid-template-rows: [header] 6em [nav] 3em;
   grid-gap: 1em;
   align-items: end;
+  position: fixed;
+  z-index: 10;
 }
 
 header {
@@ -41,7 +44,6 @@ header {
   cursor: default;
   justify-self: center;
 }
-
 header h1{
   font-size: 40px;
   grid-column: 2;
@@ -49,10 +51,10 @@ header h1{
   justify-self: end;
   align-self: center;
 }
-header #lastname {
+header .lastname {
   grid-row: 1 / span 2;
 }
-header #pronounce {
+header .pronounce {
   grid-column: 2;
   grid-row: 1 / span 2;
   justify-self: end;
@@ -62,16 +64,16 @@ header #pronounce {
   transform: translateX(-300px);
   color: darkgrey;
 }
-header #lastname:hover {
+header .lastname:hover {
   color: darkred;
   transition: 0.5s;
 }
-header #lastname:hover + #pronounce {
+header .lastname:hover + .pronounce {
   opacity: 1;
   transform: translateX(-180px);
   transition: 0.5s;
 }
-header #firstname {
+header .firstname {
   grid-row: 5 / span 2;
 }
 header h4{
@@ -86,13 +88,13 @@ header h4:hover {
   color:darkred;
   transition: 0.5s;
 }
-header #one {
+header .one {
   grid-row: 1;
 }
-header #two {
+header .two {
   grid-row: 3;
 }
-header #three {
+header .three {
   grid-row: 5;
 }
 
@@ -105,25 +107,30 @@ header .title {
   justify-self:start;
   grid-row: 1;
 }
-header #soc {
+header .soc {
   grid-row: 1;
 }
-header #code {
+header .code {
   grid-row: 3;
 }
-header #teach {
+header .teach {
   grid-row: 5;
 }
 header h4:hover + .title {
   opacity: 1;
+  transition: 0.5s;
+}
+header .one:hover + .soc {
   transform: translate(134px, -12px);
   transition: 0.5s;
 }
-header #two:hover + #code {
+header .two:hover + .code {
   transform: translate(72px, -12px);
+  transition: 0.5s;
 }
-header #three:hover + #teach {
+header .three:hover + .teach {
   transform: translate(92px, -12px);
+  transition: 0.5s;
 }
 
 nav{
@@ -148,6 +155,20 @@ nav .active{
 nav a:hover{
   color: darkred;
   transition: 0.5s;
+}
+
+.content{
+  margin-top: 11em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 75%;
+  min-width: 68em;
+  background-color: #050505;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: [main] auto [footer] 3em;
+  grid-gap: 1em;
+  align-items: end;
 }
 
 
